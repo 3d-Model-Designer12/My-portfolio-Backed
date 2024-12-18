@@ -11,12 +11,8 @@ import messageRouter from "./routes/messageRouter.js";
 import skillRouter from "./routes/skillRouter.js";
 import softwareApplicationRouter from "./routes/softwareApplicationRouter.js";
 import projectRouter from "./routes/projectRouter.js";
-app.get('/', (req, res) => {
-  res.send('API is running...');
-});
 const app = express();
 dotenv.config({ path: "../backend/config/config.env" });
-
 app.use(
   cors({
     origin: [process.env.PORTFOLIO_URL, process.env.DASHBOARD_URL],
@@ -42,6 +38,9 @@ app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/skill", skillRouter);
 app.use("/api/v1/softwareapplication", softwareApplicationRouter);
 app.use("/api/v1/project", projectRouter);
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
 
 dbConnection();
 app.use(errorMiddleware);
