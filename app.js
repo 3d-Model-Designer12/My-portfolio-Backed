@@ -11,7 +11,9 @@ import messageRouter from "./routes/messageRouter.js";
 import skillRouter from "./routes/skillRouter.js";
 import softwareApplicationRouter from "./routes/softwareApplicationRouter.js";
 import projectRouter from "./routes/projectRouter.js";
-
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
 const app = express();
 dotenv.config({ path: "../backend/config/config.env" });
 
